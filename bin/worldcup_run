@@ -5,13 +5,18 @@ require_relative '../lib/worldcup'
 
 
 
-  puts "Welcome to FIFA WorldCup 2018 fan information app!!!"
-  sleep(2)
-  puts "Here are list of commands you can enter to explore about the biggest sports event in the world."
-  sleep(1)
-  CLI.new.list_of_commands
-  puts "You may enter 'exit' at any point to close the app."
-  puts "Lets start !!!"
-  puts "Type in what you would like to do?"
+  
+  
+  	CLI.new.welcome
+	CLI.new.list_of_commands
+
+
+ 
+ 
   CLI.new.run
+
+
+
+
+
   
