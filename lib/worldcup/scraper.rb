@@ -1,9 +1,10 @@
 require 'open-uri'
 require 'pry'
 require 'nokogiri'
+#require_relative './team.rb'
+   #require_relative "./cli.rb/"
 class Scraper
-	require_relative './team.rb'
-
+	
 
 		def self.teams_data
 			puts "Teams of The WorldCup 2018 Russia"
@@ -21,39 +22,64 @@ class Scraper
 			list_of_teams.map do|team|
 				puts "#{counter += 1}. #{team}"
 			end
-			 print "Next options are: teams, groups, quarter, semi, final, winner, and exit"
+			
+			 
+			 
 			
 
 
 			end
 
 		def self.team_facts
-           facts = []
-            html_facts = Nokogiri::HTML(open("https://www.roadtrips.com/blog/world-cup-facts/"))
-          tournament_facts = html_facts.css("#post-18975 ul")
+		        facts = []
+		        html_facts = Nokogiri::HTML(open("https://www.roadtrips.com/blog/world-cup-facts/"))
+		        tournament_facts = html_facts.css("#post-18975 ul")
 
 				tournament_facts.each do |fact|
 				#binding.pry
 				fact.css("li").map do |each_fact|
-					puts "==>>   #{each_fact.text}"
-					sleep(2)
+				puts "==>>   #{each_fact.text}"
+				sleep(0.2)
 					#binding.pry
 				end
 				
 			end
-			print "Next options are: teams, facts, groups, quarter, semi, final, winner, and exit"
+		end
+
+			def self.groups
+				
+			
+				team_array = []
+				group_hash = {}
+				
+				html_groups = Nokogiri::HTML(open("https://www.fifa.com/worldcup/groups/"))
+				groups = html_groups.css(".fi-pageheader")
+				indiv_group = groups.css("span")
+				teams = html_groups.css (".fi-t__nText")
+			
+			  teams.each do |team|
+			  team_array << team.text
+
+					  end
+					
+	            team_array.uniq!
+				new_array = team_array.each_slice(4).to_a
+				new_array
+				# counter = 0
+				indiv_group.each_with_index do |each_group, index|
+				group_hash[each_group.text] = new_array[index]
+
+				end
+			#binding.pry
+			group_hash
 			end
 
-			def self.team_details
-
-
-
-			end
+			
 
 
 
 
 end
-
 # Scraper.team_facts
 #Scraper.teams_data
+Scraper.groups

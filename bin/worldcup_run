@@ -9,11 +9,7 @@ require_relative '../lib/worldcup'
   
   	CLI.new.welcome
 	CLI.new.list_of_commands
-
-
- 
- 
-  CLI.new.run
+	CLI.new.run
 
 
 

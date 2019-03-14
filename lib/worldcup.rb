@@ -5,10 +5,10 @@ require 'pry'
 
 
 
-require "./lib/worldcup/version"
-require "./lib/worldcup/cli"
-require "./lib/worldcup/scraper"
-require "./lib/worldcup/team"
+require_relative "./worldcup/version"
+require_relative "./worldcup/cli"
+require_relative "./worldcup/scraper"
+require_relative "./worldcup/team"
 
 
 module Worldcup

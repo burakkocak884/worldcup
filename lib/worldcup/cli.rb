@@ -58,21 +58,26 @@ class CLI
 
 		def run
 
+			# list_players
+
 		 puts "What would like to see next?"
 			
 				input = gets.strip
 			
 				if input == "teams"
 		        puts Scraper.teams_data
+		        puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
 		        run
 		  	
 		  		elsif input == "facts"
 		  		Scraper.team_facts
+		  		puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
 		  		run
 		  		elsif input == "groups"
-		  		#another scraper method
+		  		Team.groups
+		  		run
 		  			
-		 		 elsif input == "semi"
+		 	 elsif input == "semi"
 		  		#semi filan teams
 		  		elsif input == "final"
 		  		#final method
@@ -82,7 +87,7 @@ class CLI
 		  		puts "See you in FIFA WorldCup 2022 Qatar,  Good Bye..."
 				else
 					puts "Invalid entry, try again"
-					list_of_commands
+					puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
 					
 
 					return run
@@ -126,6 +131,11 @@ def list_of_commands
 
 
 	end
+
+# 	def list_players
+# @players = Team.player
+
+# 	end
 
 end
 
