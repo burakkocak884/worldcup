@@ -8,28 +8,22 @@ class Scraper
 
 		def self.teams_data
 			puts "Teams of The WorldCup 2018 Russia"
-			html_team = Nokogiri::HTML(open("https://www.nationalgeographic.com/people-and-culture/top-teams-countries-world-cup-graphic-interactive-culture/#secondpage"))
+			html_team = Nokogiri::HTML(open("https://www.fifa.com/worldcup/groups/"))
 			list_of_teams = []
 			#binding.pry
-			counter = 0
-			team_names = html_team.css(".ai2html")
-			team_names.each do |team_name|
+		
+			teams = html_team.css (".fi-t__nText")
+			teams.each do |team_name|
 				#binding.pry
-				 list_of_teams << team_name.css("#g-ai1-3 p").text.upcase.strip
+				 list_of_teams << team_name.text
 				
 			end
-			list_of_teams.sort
-			list_of_teams.map do|team|
-				puts "#{counter += 1}. #{team}"
-			end
+			list_of_teams.uniq!
+
+			#binding.pry
 			
-			 
-			 
+		end
 			
-
-
-			end
-
 		def self.team_facts
 		        facts = []
 		        html_facts = Nokogiri::HTML(open("https://www.roadtrips.com/blog/world-cup-facts/"))
@@ -48,7 +42,7 @@ class Scraper
 
 			def self.groups
 				
-			
+				group_array = []
 				team_array = []
 				group_hash = {}
 				
@@ -56,23 +50,29 @@ class Scraper
 				groups = html_groups.css(".fi-pageheader")
 				indiv_group = groups.css("span")
 				teams = html_groups.css (".fi-t__nText")
-			
-			  teams.each do |team|
-			  team_array << team.text
-
-					  end
-					
-	            team_array.uniq!
-				new_array = team_array.each_slice(4).to_a
-				new_array
-				# counter = 0
-				indiv_group.each_with_index do |each_group, index|
-				group_hash[each_group.text] = new_array[index]
-
+				indiv_group.each do |group|
+					group_array << group.text
 				end
+				group_array
+				#binding.pry
+			
+			  # teams.each do |team|
+			  # team_array << team.text
+
+					#   end
+					
+	   #          team_array.uniq!
+				# new_array = team_array.each_slice(4).to_a
+				# new_array
+				# # counter = 0
+				# indiv_group.each_with_index do |each_group, index|
+				# group_hash[each_group.text] = new_array[index]
+
+				# end
 			#binding.pry
-			group_hash
+			#group_hash
 			end
+
 
 			
 
@@ -82,4 +82,4 @@ class Scraper
 end
 # Scraper.team_facts
 #Scraper.teams_data
-Scraper.groups
+#Scraper.groups

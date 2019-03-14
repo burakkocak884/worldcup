@@ -65,7 +65,7 @@ class CLI
 				input = gets.strip
 			
 				if input == "teams"
-		        puts Scraper.teams_data
+		        puts Team.team_data_print
 		        puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
 		        run
 		  	
@@ -74,7 +74,8 @@ class CLI
 		  		puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
 		  		run
 		  		elsif input == "groups"
-		  		Team.groups
+		  		Group.team_group_print
+		  		puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
 		  		run
 		  			
 		 	 elsif input == "semi"
