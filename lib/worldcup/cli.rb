@@ -15,21 +15,21 @@ class CLI
 			  sleep(3)
 			  puts "    ########      ###               ##            #            "
 			  sleep(0.9)
-			  puts "    #           #     #            #  #           #            "
+			  puts "   #            #     #            #  #           #            "
 			  sleep(0.8)
-			  puts "    #          #       #          #    #          #            "
+			  puts "  #            #       #          #    #          #            "
 			  sleep(0.7)
-			  puts "    #         #         #        #      #         #            " 
+			  puts "  #           #         #        #      #         #            " 
 			  sleep(0.6)
-			  puts "    #         #         #       #        #        #            "
+			  puts "  #           #         #       #        #        #            "
 			  sleep(0.5)
-			  puts "    #   ####  #         #      # # #  # # #       #            "
+			  puts "  #   ### #   #         #      # # #  # # #       #            "
 			  sleep(0.4)
-			  puts "    #      #  #         #     #            #      #            "
+			  puts "  #        #  #         #     #            #      #            "
 			  sleep(0.3)
-			  puts "    #      #   #       #     #              #     #            "
+			  puts "  #        #   #       #     #              #     #            "
 			  sleep(0.2)  
-			  puts "    #      #    #     #     #                #    #            "
+			  puts "   #       #    #     #     #                #    #            "
 			  sleep(0.1)
 			  puts "    ########      ###      #                  #   #########    "
 			  puts ""
@@ -66,16 +66,16 @@ class CLI
 			
 				if input == "teams"
 		        puts Team.team_data_print
-		        puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
+		        next_option
 		        run
 		  	
 		  		elsif input == "facts"
 		  		Scraper.team_facts
-		  		puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
+		  		next_option
 		  		run
 		  		elsif input == "groups"
 		  		Group.team_group_print
-		  		puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
+		  		next_option
 		  		run
 		  			
 		 	 elsif input == "semi"
@@ -88,10 +88,8 @@ class CLI
 		  		puts "See you in FIFA WorldCup 2022 Qatar,  Good Bye..."
 				else
 					puts "Invalid entry, try again"
-					puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
-					
-
-					return run
+					next_option
+					 run
 		 		end
 			
 		end
@@ -131,6 +129,9 @@ def list_of_commands
 	# puts "Enter 'teams' to view list of the teams in WorldCup 2018"
 
 
+	end
+	def next_option
+		puts "Next options are: teams, groups, quarter, semi, final, winner, and exit"
 	end
 
 # 	def list_players

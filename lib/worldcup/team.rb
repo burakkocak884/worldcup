@@ -31,12 +31,11 @@
 				 @@all_teams
 		  end
 
-		
-		 def self.groups
-		 	#binding.pry
-		 	Scraper.groups
+		 
 
-end
+
+		
+
 
 
 		  # def self.list_teams
@@ -47,7 +46,7 @@ end
 
  		 def self.groups_selector
  		 	
- 		 	puts "Please enter a letter to see teams in each group:"
+ 		 		puts "Please enter a letter to see teams in each group:"
  		 	
  		 #binding.pry
 				input = gets.strip
@@ -58,10 +57,11 @@ end
  		 		puts value
 
  		 		end
- 		 	
-
-				end
+ 		 	end
 			end
+
+
+
 			def self.team_data_print
 
                  counter = 0

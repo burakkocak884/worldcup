@@ -40,46 +40,43 @@ class Scraper
 			end
 		end
 
+			
 			def self.groups
 				
 				group_array = []
 				team_array = []
-				group_hash = {}
+				
 				
 				html_groups = Nokogiri::HTML(open("https://www.fifa.com/worldcup/groups/"))
 				groups = html_groups.css(".fi-pageheader")
 				indiv_group = groups.css("span")
-				teams = html_groups.css (".fi-t__nText")
+				teams = html_groups.css(".fi-t__nText")
 				indiv_group.each do |group|
 					group_array << group.text
 				end
 				group_array
-				#binding.pry
-			
-			  # teams.each do |team|
-			  # team_array << team.text
-
-					#   end
-					
-	   #          team_array.uniq!
-				# new_array = team_array.each_slice(4).to_a
-				# new_array
-				# # counter = 0
-				# indiv_group.each_with_index do |each_group, index|
-				# group_hash[each_group.text] = new_array[index]
-
-				# end
-			#binding.pry
-			#group_hash
+				#group_hash
 			end
 
 
+			def self.players
+
+				html_player = Nokogiri::HTML(open("https://www.fifa.com/worldcup/players/browser/#player-by-position"))
+				
+				
+				player = html_player.css(".col-xs-12 col-sm-3 col-md-3 col-lg-3 col-flex")
+				
+
+
+				binding.pry
+
+			end
 			
 
 
 
 
 end
-# Scraper.team_facts
+ Scraper.players
 #Scraper.teams_data
 #Scraper.groups
