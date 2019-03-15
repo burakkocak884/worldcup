@@ -7,19 +7,20 @@ class Scraper
 	
 
 		def self.teams_data
-			puts "Teams of The WorldCup 2018 Russia"
+			# puts "Teams of The WorldCup 2018 Russia"
 			html_team = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads"))
 			list_of_teams = []
 			#binding.pry
 		
 			teams = html_team.css (".toclevel-2 .toctext")
-			binding.pry
+			#binding.pry
 			teams.each do |team_name|
-				binding.pry
+				#binding.pry
 				 list_of_teams << team_name.text
 				
 			end
-			list_of_teams.uniq!
+			actualy_list = list_of_teams[0..31]
+			
 
 			#binding.pry
 			
@@ -88,5 +89,5 @@ class Scraper
 
 end
  #Scraper.players
-Scraper.teams_data
+# Scraper.teams_data
 #Scraper.groups

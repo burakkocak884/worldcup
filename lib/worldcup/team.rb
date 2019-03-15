@@ -18,6 +18,7 @@
 
 		  def initialize(name)
  		  	@name = name
+ 		  	@players = []
  		  	#binding.pry
 		  end
 

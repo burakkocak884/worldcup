@@ -66,6 +66,10 @@ class CLI
 			
 				if input == "teams"
 		        puts Team.team_data_print
+		        puts "Type in a number  to see  the team's players"
+
+		        puts Team.team_data_print
+
 		        next_option
 		        run
 		  	
