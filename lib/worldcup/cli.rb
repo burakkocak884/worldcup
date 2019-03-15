@@ -14,23 +14,23 @@ class CLI
 				puts ""
 			  sleep(3)
 			  puts "    ########      ###               ##            #            "
-			  sleep(0.9)
+			  sleep(0.2)
 			  puts "   #            #     #            #  #           #            "
-			  sleep(0.8)
-			  puts "  #            #       #          #    #          #            "
-			  sleep(0.7)
-			  puts "  #           #         #        #      #         #            " 
-			  sleep(0.6)
-			  puts "  #           #         #       #        #        #            "
-			  sleep(0.5)
-			  puts "  #   ### #   #         #      # # #  # # #       #            "
-			  sleep(0.4)
-			  puts "  #        #  #         #     #            #      #            "
 			  sleep(0.3)
+			  puts "  #            #       #          #    #          #            "
+			  sleep(0.4)
+			  puts "  #           #         #        #      #         #            " 
+			  sleep(0.5)
+			  puts "  #           #         #       #        #        #            "
+			  sleep(0.6)
+			  puts "  #   ### #   #         #      # # #  # # #       #            "
+			  sleep(0.5)
+			  puts "  #        #  #         #     #            #      #            "
+			  sleep(0.4)
 			  puts "  #        #   #       #     #              #     #            "
-			  sleep(0.2)  
+			  sleep(0.3)  
 			  puts "   #       #    #     #     #                #    #            "
-			  sleep(0.1)
+			  sleep(0.2)
 			  puts "    ########      ###      #                  #   #########    "
 			  puts ""
 
@@ -59,7 +59,7 @@ class CLI
 		def run
 
 			# list_players
-
+				sleep(3)
 		 puts "What would like to see next?"
 			
 				input = gets.strip

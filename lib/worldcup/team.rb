@@ -31,6 +31,25 @@
 				 @@all_teams
 		  end
 
+		#   def self.players_list
+
+		# #binding.pry
+
+		#   	Scraper.players.each do |each_team_list|
+  #            			binding.pry
+		#   		each_team_list.each do |player|
+		#   			binding.pry
+		#   			Team.players = player
+		#   		end
+		#   	end
+
+
+
+
+
+
+		#   end
+
 		 
 
 
@@ -71,6 +90,7 @@
 			end
 			puts ""
 		end
+		
  # def self.player
  # puts "hello player"
  # team1 = self.new
@@ -83,4 +103,5 @@
  # Team.groups
  # Team.create
  # Team.team_data_print
+ #Team.players_list
 

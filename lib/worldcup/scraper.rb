@@ -8,13 +8,14 @@ class Scraper
 
 		def self.teams_data
 			puts "Teams of The WorldCup 2018 Russia"
-			html_team = Nokogiri::HTML(open("https://www.fifa.com/worldcup/groups/"))
+			html_team = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads"))
 			list_of_teams = []
 			#binding.pry
 		
-			teams = html_team.css (".fi-t__nText")
+			teams = html_team.css (".toclevel-2 .toctext")
+			binding.pry
 			teams.each do |team_name|
-				#binding.pry
+				binding.pry
 				 list_of_teams << team_name.text
 				
 			end
@@ -60,16 +61,25 @@ class Scraper
 
 
 			def self.players
-
-				html_player = Nokogiri::HTML(open("https://www.fifa.com/worldcup/players/browser/#player-by-position"))
+				teams_players = []
+				
+				html_player = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads"))
 				
 				
-				player = html_player.css(".col-xs-12 col-sm-3 col-md-3 col-lg-3 col-flex")
+				player_list = html_player.css(".sortable .nat-fs-player")
+				team_list = html_player.css("h3 .mw-headline")
 				
+				#team_list.each do |teams|
+					#binding.pry
+				
+				player_list.each do |players|
+					
+				teams_players << players.css("a")[1].text
+				
+			end
+				players_of_each_team = teams_players.each_slice(23).to_a
 
-
-				binding.pry
-
+		
 			end
 			
 
@@ -77,6 +87,6 @@ class Scraper
 
 
 end
- Scraper.players
-#Scraper.teams_data
+ #Scraper.players
+Scraper.teams_data
 #Scraper.groups
