@@ -1,15 +1,23 @@
-# require_relative "./scraper.rb"
-# require_relative "./team.rb/"
-# require_relative "./player.rb"
-# require_relative "./group.rb/"
-require 'pry'
+
+
 
 
 
 class Worldcup::CLI
 
 
-		def welcome
+		
+
+		 def call
+		 # welcome
+		 # list_of_commands
+		 run
+		end
+
+
+
+
+		 	def welcome
 
 				puts ""
 				puts ""
@@ -87,7 +95,7 @@ class Worldcup::CLI
 			  		next_option
 			  		run
 		  		elsif input == "groups"
-			  		Worldcup::Scraper.groups
+		  			Worldcup::Group.team_in_group
 			  		next_option
 			  		run
 		  		

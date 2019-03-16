@@ -1,10 +1,4 @@
-require 'open-uri'
-require 'pry'
-require 'nokogiri'
-# require_relative './team.rb'
-#    require_relative "./cli.rb/"
-#    require_relative './group.rb'
-#    require_relative "./player.rb/"
+
 class Worldcup::Scraper
 	
 		# Method to scrape name of teams from a website, and print it out as a list.

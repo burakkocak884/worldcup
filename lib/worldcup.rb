@@ -5,15 +5,16 @@ require 'pry'
 
 
 
-require_relative "./worldcup/version"
-require_relative "./worldcup/cli"
-require_relative "./worldcup/scraper"
-require_relative "./worldcup/team"
-require_relative "./worldcup/group"
-require_relative "./worldcup/player"
+require_relative "worldcup/version.rb"
+require_relative "worldcup/cli.rb"
+require_relative "worldcup/scraper.rb"
+require_relative "worldcup/team.rb"
+require_relative "worldcup/group.rb"
+require_relative "worldcup/player.rb"
 
 
-module Worldcup
-  class Error < StandardError; end
-  # Your code goes here...
-end
+
+# module Worldcup
+#   class Error < StandardError; end
+#   # Your code goes here...
+# end

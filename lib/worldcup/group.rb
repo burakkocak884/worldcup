@@ -1,8 +1,3 @@
-require 'pry'
-# require_relative "./scraper.rb"
-#  require_relative "./cli.rb/"
-#  require_relative "./team.rb/"
-
 
 class Worldcup::Group
 
@@ -11,33 +6,52 @@ class Worldcup::Group
 
 		    @@all_groups = []
 
-		def initialize(name)
+		def initialize(name, teams)
 			@name = name
-			@@all_groups << self
+			@teams = teams
+		
 			@teams = []
+			@@all_groups << self
+			#binding.pry
+
 		end
 
 	
 	 	def self.team_group
 			
-			#binding.pry
 			Worldcup::Scraper.groups.each do |group|
 			 new_group = Worldcup::Group.new(group)
 			 #binding.pry
 			end
 		end
-		def self.all
-			@@all_groups
-			#binding.pry
-		end
-	# 	def self.team_in_group
- #         #binding.pry
-	# 		 split_teams = Worldcup::Team.all.each_slice(4).to_a
-	# 		 binding.pry
+		
+		def self.team_in_group
+         
+         #binding.pry
+			  split_teams = Worldcup::Team.create.each_slice(4).to_a
+		#	  binding.pry
+			  split_teams.each_with_index do |chunk, index|
+			  	
+			  	chunk.each do |team|
+			  		
+			  		team = @@all_groups[index].teams
+			  		#binding.pry
+			  	end
+			  end
+			  @@all_groups
+			  binding.pry
+			end
+		# def all
+		# 	@@all_groups
+		# 	# binding.pry
+		# end
+
+
+
 		
 
 	
-	# end
+	
 
 
 end

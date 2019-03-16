@@ -1,13 +1,3 @@
-
-
-   # require_relative "./scraper.rb"
-   # require_relative "./cli.rb/"
-   # require_relative "./team.rb"
-   
-
-   require 'pry'
-
-
 class Worldcup::Player
 	attr_accessor :name
     attr_reader :team
