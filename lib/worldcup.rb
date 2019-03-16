@@ -10,6 +10,7 @@ require_relative "./worldcup/cli"
 require_relative "./worldcup/scraper"
 require_relative "./worldcup/team"
 require_relative "./worldcup/group"
+require_relative "./worldcup/player"
 
 
 module Worldcup
