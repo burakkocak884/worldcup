@@ -6,7 +6,7 @@ require 'pry'
 
 
 
-class CLI
+class Worldcup::CLI
 
 
 		def welcome
@@ -15,25 +15,25 @@ class CLI
 				puts ""
 				puts ""
 			  sleep(2)
-			  puts "    ########      ###               ##            #            "
+			  puts "    ########      ###              #           #           "
 			  sleep(0.1)
-			  puts "   #            #     #            #  #           #            "
+			  puts "   #            #     #            #           #            "
 			  sleep(0.1)
-			  puts "  #            #       #          #    #          #            "
+			  puts "  #            #       #          # #          #            "
 			  sleep(0.1)
-			  puts "  #           #         #        #      #         #            " 
+			  puts "  #           #         #        #   #         #            " 
 			  sleep(0.1)
-			  puts "  #           #         #       #        #        #            "
+			  puts "  #           #         #       #     #        #            "
 			  sleep(0.1)
-			  puts "  #   ### #   #         #      # # #  # # #       #            "
+			  puts "  #    ####   #         #      # # # # #       #            "
 			  sleep(0.1)
-			  puts "  #        #  #         #     #            #      #            "
+			  puts "  #        #  #         #     #         #      #            "
 			  sleep(0.1)
-			  puts "  #        #   #       #     #              #     #            "
+			  puts "  #        #   #       #     #           #     #            "
 			  sleep(0.1)  
-			  puts "   #       #    #     #     #                #    #            "
+			  puts "   #       #    #     #     #             #    #            "
 			  sleep(0.1)
-			  puts "    ########      ###      #                  #   #########    "
+			  puts "    ########      ###      #               #   #########    "
 			  puts ""
 
 			  sleep(2)
@@ -72,22 +72,22 @@ class CLI
 				input = gets.strip
 			
 				if input == "teams"
-			        puts Scraper.teams_data
+			        puts group_with_teams
 			         next_option
 			         run
 			    elsif input == "players"
-		  		    puts Scraper.teams_data
+		  		    puts group_with_teams
 		  		    puts "Type in a number  to see the team's players"
 					new_team_number = gets.strip.to_i
-		  			Scraper.players(new_team_number)
+		  			Worldcup::Scraper.players(new_team_number)
 		  			next_option
 			         run
 			    elsif input == "facts"
-			  		Scraper.team_facts
+			  		Worldcup::Scraper.team_facts
 			  		next_option
 			  		run
 		  		elsif input == "groups"
-			  		Scraper.groups
+			  		Worldcup::Scraper.groups
 			  		next_option
 			  		run
 		  		
@@ -125,6 +125,15 @@ def list_of_commands
 	def next_option
 		puts "Next options are: teams, groups, players, facts, and exit"
 	end
+		def group_with_teams
+			counter = 0
+			Worldcup::Scraper.teams_data.each do|team|
+			
+			puts "#{counter += 1}. #{team}"
+			sleep(0.1)
+			end
+			puts ""
+		end
 
 
 end

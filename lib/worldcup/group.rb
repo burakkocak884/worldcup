@@ -1,15 +1,15 @@
 require 'pry'
-require_relative "./scraper.rb"
- require_relative "./cli.rb/"
- require_relative "./team.rb/"
-require_relative "./player.rb/"
-
-class Group
+# require_relative "./scraper.rb"
+#  require_relative "./cli.rb/"
+#  require_relative "./team.rb/"
 
 
-	attr_accessor :name, :team
+class Worldcup::Group
 
-		@@all_groups = []
+
+	attr_accessor :name, :teams
+
+		    @@all_groups = []
 
 		def initialize(name)
 			@name = name
@@ -19,29 +19,29 @@ class Group
 
 	
 	 	def self.team_group
-			 Scraper.groups.each do |group|
-			 new_group = Group.new(group)
+			
+			#binding.pry
+			Worldcup::Scraper.groups.each do |group|
+			 new_group = Worldcup::Group.new(group)
 			 #binding.pry
 			end
 		end
-# 		def self.team_group_print
-# #binding.pry
-# 			all.each do |group|
-# 				#binding.pry
-# 				# puts "#{group}:"
-# 				# group.team.each do |team|
-# 				# puts " ==>> #{team}"
-
-# 			#end
-# 		end
-		
 		def self.all
-		return  @@all_groups
-			
+			@@all_groups
+			#binding.pry
 		end
+	# 	def self.team_in_group
+ #         #binding.pry
+	# 		 split_teams = Worldcup::Team.all.each_slice(4).to_a
+	# 		 binding.pry
+		
+
+	
+	# end
 
 
 end
-#Group.team_group_print
-#Group.team_group
-#roup.all
+
+# Group.team_group
+# Group.all
+# Group.team_in_group

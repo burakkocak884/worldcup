@@ -1,11 +1,11 @@
 require 'open-uri'
 require 'pry'
 require 'nokogiri'
-require_relative './team.rb'
-   require_relative "./cli.rb/"
-   require_relative './group.rb'
-   require_relative "./player.rb/"
-class Scraper
+# require_relative './team.rb'
+#    require_relative "./cli.rb/"
+#    require_relative './group.rb'
+#    require_relative "./player.rb/"
+class Worldcup::Scraper
 	
 		# Method to scrape name of teams from a website, and print it out as a list.
 		def self.teams_data 
@@ -16,13 +16,8 @@ class Scraper
 			teams.each do |team_name|
 		    list_of_teams << team_name.text
 			end
-			actualy_list = list_of_teams[0..31]
-			counter = 0
-			actualy_list.map do|team|
-			
-			puts "#{counter += 1}. #{team}"
-			end
-			puts ""
+			actual_list = list_of_teams[0..31]
+
 			end
 
 			
@@ -49,14 +44,17 @@ class Scraper
 			group_array << group.text
 			end
 			group_array
+			#binding.pry
 			teams_for_group = teams_data.each_slice(4).to_a
-			group_array.each_with_index do |group|
-			binding.pry
-			puts "#{group} ==>>"
-			teams_for_group.each_with_index do |team,index|
-			binding.pry
-			puts "** #{team[index]}"
-				end
+			group_array.each_with_index do |group, index|
+			#binding.pry
+			puts "#{group} :"
+			teams_for_group[index].each do |teams|
+				#binding.pry
+			puts "~~~~> #{teams}"
+			sleep(0.08)
+				
+			end
 			end
 		end
 
@@ -66,14 +64,18 @@ class Scraper
 			html_player = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads"))
 			player_list = html_player.css(".sortable .nat-fs-player")
 			team_list = html_player.css("h3 .mw-headline")
+			
+			#binding.pry
 			player_list.each do |players|
 			teams_players << players.css("a")[1].text
 			end
 			players_of_each_team = teams_players.each_slice(23).to_a
-		    puts "Squad of #{players_of_each_team[team_number-1]} :"
+			#binding.pry
+		    puts "Squad of #{teams_data[team_number-1]} :"
             puts "Players"
             players_of_each_team[team_number-1].each do |player|
             puts " --> #{player}"
+            sleep(0.08)
 
 	
 		end

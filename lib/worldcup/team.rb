@@ -1,12 +1,12 @@
-  require_relative "./scraper.rb"
- require_relative "./cli.rb/"
-   require_relative "./group.rb"
- require_relative "./player.rb/"
+ #  require_relative "./scraper.rb"
+ # require_relative "./cli.rb/"
+ #   require_relative "./group.rb"
+ # require_relative "./player.rb/"
  require 'pry'
 
 
 
- class Team
+ class Worldcup::Team
 
 
  	 attr_accessor :name, :players
@@ -20,52 +20,29 @@
  		  	@name = name
  		  	@players = []
  		  	@@all_teams << self
+ 		  #	binding.pry
  		end
 
 
 	 	def self.create
 			
-			Scraper.teams_data.each do |each_team|
-	  		team = Team.new(each_team)
+			Worldcup::Scraper.teams_data.each do |each_team|
+	  		team = Worldcup::Team.new(each_team)
+	  		#binding.pry
 	  	end
 		end
-		
-		# def self.groups_selector
- 		 	
- 	# 	 		puts "Please enter a letter to see teams in each group:"
- 		 	
- 	
-		# 		input = gets.strip
- 	# 	 		Scraper.groups.each do |key, value|
- 	# 	 			 #binding.pry
- 		 			 
- 	# 	 		if input == key[6] || input == key
- 	# 	 		puts value
-
- 	# 	 		end
- 	# 	 	end
-		# 	end
-
-
-
-		# 	def self.team_data_print
-
-  #                counter = 0
-		# 		Scraper.teams_data.map do|team|
-			
-		# 		puts "#{counter += 1}. #{team}"
-		# 	end
-		# 	puts ""
-		# end
+		def self.all 
+		@@all_teams
+			#binding.pry
+		end
 		
 
 
+		
 
  end
- # Team.groups
- # Team.groups
- #eam.create
- # Team.team_data_print
- #Team.players_list
- #Team.team_to_group
+  # Team.create
+  # Team.all
 
+ 
+ 
