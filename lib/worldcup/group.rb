@@ -16,58 +16,30 @@ class Worldcup::Group
 		end
 
 	
-	 	def self.team_group
-			#binding.pry
-			group_list = Worldcup::Scraper.groups
-
-			@@all_groups = []
-			group_list.each do |group|
-			#	binding.pry
-			 new_group = self.new(group)
-			@@all_groups << new_group
-			 
-			 #inding.pry
-			end
-			@@all_groups
-		
-		
-		
+	 	def self.scrape_create
 			
-			#binding.pry
+			@@all_groups = []
+			html_groups = Nokogiri::HTML(open("https://www.fifa.com/worldcup/groups/"))
+		 	groups = html_groups.css(".fi-pageheader")
+			indiv_group = groups.css("span")
+		 	indiv_group.each do |group|
+			new_group = self.new(group.text)
+			@@all_groups << new_group
+				end
+			@@all_groups
 		end
 		
 		def self.team_in_group
-         team_group
-         #binding.pry
-			  split_teams = Worldcup::Team.players_to_teams.each_slice(4).to_a
-		#	  binding.pry
-			  split_teams.each_with_index do |chunk, index|
-			  	
-
-			  	chunk.each do |each_team|
-			  		#binding.pry
-			  		@@all_groups[index].teams << each_team
-			  		#binding.pry
+            scrape_create
+     		split_teams = Worldcup::Team.players_to_teams.each_slice(4).to_a
+		 	split_teams.each_with_index do |chunk, index|
+		    chunk.each do |each_team|
+		    @@all_groups[index].teams << each_team
 			  	end
 			  end
-			 
-			  binding.pry
+			  @@all_groups
+			
 			end
-		# def all
-		# 	@@all_groups
-		# 	# binding.pry
-		# end
-
-
-
 		
 
-	
-	
-
-
 end
-
-# Group.team_group
-# Group.all
-# Group.team_in_group

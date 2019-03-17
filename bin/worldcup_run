@@ -6,10 +6,9 @@ require_relative '../lib/worldcup'
 
 
   
-   
+    # Calling run method to start
    Worldcup::CLI.new.call
-	# Worldcup::CLI.new.list_of_commands
-	# Worldcup::CLI.new.run
+	
 
  
 
