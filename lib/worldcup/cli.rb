@@ -9,8 +9,8 @@ class Worldcup::CLI
 		
 		 # call method will execute the next methods in order.
 		 def call
-		 # welcome
-		 # list_of_commands
+		 welcome
+		 list_of_commands
 		 run
 		end
 
@@ -64,37 +64,38 @@ class Worldcup::CLI
  		# It will loop back to itself when input is invalid,
  		# The app will exit , when the input is "exit".
 		def run
+			puts ""
+			puts ""
+			puts ""
+			next_option
+			puts ""
 			puts "What would like to see next?"
+			puts ""
 			input = gets.strip.downcase
 	
 		if input == "teams"
 	        puts teams
-	        next_option
+	       
 	        run
 	    elsif input == "players"
-	    	puts "'Let's get name of 32 teams first"
+	    	puts "'Let's get names of 32 teams first"
   		    puts teams
-  		    puts "Lets pick a number to see details"
-
+  		    puts "Let's pick a number to see details"
 			new_team_number = gets.strip.to_i
   			player_print(new_team_number)
-  			next_option
-	         run
+  			run
 	    elsif input == "facts"
 	  		Worldcup::Team.tournament_facts
-	  		next_option
 	  		run
   		elsif input == "groups"
   			puts "Enter 'list' for list of groups or 'detail' for detils of every group"
   			group_input = gets.strip.downcase
   			group_with_teams(group_input)
-	  		next_option
 	  		run
 	  elsif input == "exit"	
  	 		puts "See you in FIFA WorldCup 2022 Qatar,  Good Bye..."
 		else
 			puts "Invalid entry, try again"
-			next_option
 			run
  			end
 	
@@ -122,7 +123,7 @@ class Worldcup::CLI
 		end
 		# next_option is  a message the user for next selection.
 		def next_option
-			puts "Next options are: teams, groups, players, facts, and exit"
+			puts "Available options are: teams, groups, players, facts, and exit"
 		end
 		# teams method will display list of teams when input is "teams".
 		def teams
