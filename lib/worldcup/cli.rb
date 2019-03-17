@@ -72,9 +72,10 @@ class Worldcup::CLI
 	        next_option
 	        run
 	    elsif input == "players"
-	    	puts "'Let's get list of teams first"
+	    	puts "'Let's get name of 32 teams first"
   		    puts teams
-  		    puts "Type in a number  to see the team's players"
+  		    puts "Lets pick a number to see details"
+
 			new_team_number = gets.strip.to_i
   			player_print(new_team_number)
   			next_option
@@ -155,6 +156,7 @@ class Worldcup::CLI
 		#player_print will take an argument which depends on what the user input is,
 		# then It will list 23 players with their team name.
 		def player_print(team_number)
+			puts "Selecting 23 specific players out of 736 from FIFA WorldCup 2018 Russia..."
 			list_of_teams = Worldcup::Team.players_to_teams
 			puts "Squad of #{list_of_teams[team_number-1].name} :"
 			list_of_teams[team_number-1].players.each do |player|
