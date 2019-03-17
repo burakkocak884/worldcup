@@ -2,20 +2,24 @@
 
  class Worldcup::Team
 
+# Worldcup::Team has a name, many players, and it belongs to a group.
 
  	 attr_accessor :name, :players
  	 attr_reader :group
 
  	 @@all_teams =[]
 		 
-
+ 		#it's name gets initialized
+ 		#it also has list of players array.
 
 		def initialize(name)
  		  	@name = name
  		  	@players = []
  		end
 
-
+ 		# scrape_create method  scrapes a web page,
+	 	# then it initializes each element with new insrtance of the class,
+	 	# lastly, it will store it on array of the class.
 	 	def self.scrape_create
 			@@all_teams = []
 			html_team = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads"))
@@ -26,6 +30,8 @@
 	  		end
 		    @@all_teams
 	  	end
+		  	#players_to_teams method will take list of class instances(players), break them down into 23-indexed sub arrays.
+			#Then, it will assign set of 23 players in each team that they belong to.
 
 		def self.players_to_teams
 			scrape_create
@@ -39,6 +45,8 @@
 			@@all_teams
 		end
 
+			# tournament_facts will scrape data from a web page, iterate over the data,
+			# then return manupulated data which is a list of facts from previous WorldCups. 
 		def self.tournament_facts
 		 puts "Interesting facts of Fifa WorldCup(s) in the past :"
 	        facts = []
