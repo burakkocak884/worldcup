@@ -1,8 +1,8 @@
 # Worldcup
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/worldcup`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to your new gem, Worldcup info app! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/worldcup`. To experiment with that code, run `bin/worldcup_run` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+
 
 ## Installation
 
@@ -22,7 +22,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Upon running 'bin/worldcup_run' in your terminal, you will be presented a welcome message, then list of commands for easy guide into the app. Next, the app will be waiting to take your input on what you would like to do. At this point and any time after that  an input will be asked. An invalid entry will take you back to new input. An input is not a case-sensetive. Once it takes your input which is other than 'exit', it will bring desired information on your screen via terminal. An "exit" command will always close down the app. 
+Since there is so much information scraped from different web pages, some steps might take longer than others, so be patient. If you get a 'time-out' error, you may want to restart the app. Have fun!!!
 
 ## Development
 
@@ -32,7 +33,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/worldcup. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/burakkocak884/worldcup. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

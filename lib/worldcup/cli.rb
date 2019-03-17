@@ -84,7 +84,9 @@ class Worldcup::CLI
 	  		next_option
 	  		run
   		elsif input == "groups"
-  			group_with_teams
+  			puts "Enter 'list' for list of groups or 'detail' for detils of every group"
+  			group_input = gets.strip.downcase
+  			group_with_teams(group_input)
 	  		next_option
 	  		run
 	  elsif input == "exit"	
@@ -130,15 +132,23 @@ class Worldcup::CLI
 			end
 			puts ""
 		end
+		
+		
 		# When input is "groups" , it will first display list of teams,
 		# Then , it  will select correct team.
-		def group_with_teams
+		def group_with_teams(input)
+			 if input == "list"
+			 	 Worldcup::Group.scrape_create.each do |group|
+       			puts "^^^#{group.name} ___"
+       			end
+       		elsif input == "detail"
 			groups_with_teams = Worldcup::Group.team_in_group
 			groups_with_teams.each_with_index do |group, index1|
 			puts "#{group.name} :"
 			groups_with_teams[index1].teams.each_with_index do |team|
 			puts "~~~~> #{team.name}"
 			sleep(0.04)
+			end
 			end
 			end
 		end
