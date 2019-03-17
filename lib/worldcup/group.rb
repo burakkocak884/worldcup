@@ -2,43 +2,55 @@
 class Worldcup::Group
 
 
+
 	attr_accessor :name, :teams
 
 		    @@all_groups = []
 
-		def initialize(name, teams)
+		def initialize(name)
 			@name = name
-			@teams = teams
-		
 			@teams = []
-			@@all_groups << self
-			#binding.pry
+			
+       			
 
 		end
 
 	
 	 	def self.team_group
-			
-			Worldcup::Scraper.groups.each do |group|
-			 new_group = Worldcup::Group.new(group)
-			 #binding.pry
+			#binding.pry
+			group_list = Worldcup::Scraper.groups
+
+			@@all_groups = []
+			group_list.each do |group|
+			#	binding.pry
+			 new_group = self.new(group)
+			@@all_groups << new_group
+			 
+			 #inding.pry
 			end
+			@@all_groups
+		
+		
+		
+			
+			#binding.pry
 		end
 		
 		def self.team_in_group
-         
+         team_group
          #binding.pry
-			  split_teams = Worldcup::Team.create.each_slice(4).to_a
+			  split_teams = Worldcup::Team.players_to_teams.each_slice(4).to_a
 		#	  binding.pry
 			  split_teams.each_with_index do |chunk, index|
 			  	
-			  	chunk.each do |team|
-			  		
-			  		team = @@all_groups[index].teams
+
+			  	chunk.each do |each_team|
+			  		#binding.pry
+			  		@@all_groups[index].teams << each_team
 			  		#binding.pry
 			  	end
 			  end
-			  @@all_groups
+			 
 			  binding.pry
 			end
 		# def all

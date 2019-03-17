@@ -5,21 +5,26 @@ class Worldcup::Player
         @@all_names = []
         	def initialize(name)
         		@name = name
-                @@all_names << self
+           
         	end
 
 
 
-        def self.create_player_and_assign
-           
-            WorldCup::Scraper.players.each_with_index do |each_team_players, index|
-            each_team_players.each do |players|
-            new_player = self.new(players)
-            Worldcup::Team.create[index].players << new_player
-           
-             end
-           end
+        def self.scrape_create
+           @@all_names = []
+           #binding.pry
+           html_player = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads"))
+            player_list = html_player.css(".sortable .nat-fs-player")
+            player_list.each do |players|
+            #    binding.pry
+            new_player = self.new(players.css("a")[1].text)
+           #inding.pry
+            @@all_names << new_player
         end
+       @@all_names
+      # binding.pry
+   
+  end
         
 end
 #Player.create_player_and_assign

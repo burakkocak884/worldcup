@@ -80,14 +80,15 @@ class Worldcup::CLI
 				input = gets.strip
 			
 				if input == "teams"
-			        puts group_with_teams
+			        puts teams
 			         next_option
 			         run
 			    elsif input == "players"
-		  		    puts group_with_teams
+			    	puts "'Let's get list of teams first"
+		  		    puts teams
 		  		    puts "Type in a number  to see the team's players"
 					new_team_number = gets.strip.to_i
-		  			Worldcup::Scraper.players(new_team_number)
+		  			player_print(new_team_number)
 		  			next_option
 			         run
 			    elsif input == "facts"
@@ -96,6 +97,7 @@ class Worldcup::CLI
 			  		run
 		  		elsif input == "groups"
 		  			Worldcup::Group.team_in_group
+		  			 group_with_teams
 			  		next_option
 			  		run
 		  		
@@ -133,7 +135,7 @@ def list_of_commands
 	def next_option
 		puts "Next options are: teams, groups, players, facts, and exit"
 	end
-		def group_with_teams
+		def teams
 			counter = 0
 			Worldcup::Scraper.teams_data.each do|team|
 			
@@ -142,6 +144,35 @@ def list_of_commands
 			end
 			puts ""
 		end
+		def group_with_teams
+			teams_for_group = Worldcup::Scraper.teams_data.each_slice(4).to_a
+			Worldcup::Scraper.groups.each_with_index do |group, index|
+			#binding.pry
+			puts "#{group} :"
+			teams_for_group[index].each do |teams|
+				#binding.pry
+			puts "~~~~> #{teams}"
+			sleep(0.08)
+				
+			end
+			end
+		end
+		def player_print(team_number)
+
+			list_of players = Worldcup::Player.create
+
+			
+			puts "hello_player"
+		    # puts "Squad of #{Worldcup::Scraper.teams_data[team_number-1]} :"
+      #       puts "Players"
+      #       players_of_each_team[team_number-1].each do |player|
+      #       puts " --> #{player}"
+      #       sleep(0.08)#binding.pry
+      #   end
+    end
+
+
+
 
 
 end
