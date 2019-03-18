@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "worldcup"
   spec.version       = Worldcup::VERSION
   spec.authors       = ["Burak Kocak"]
-  spec.email         = ["burakkocak884@ghotmail.com"]
+  spec.email         = ["burakkocak884@hotmail.com"]
 
   spec.summary       = "FIFA WorldCup user information app"
   spec.description   = "It welcomes a user, then it takes an input to display information that is pulled from several websites."
