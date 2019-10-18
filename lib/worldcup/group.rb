@@ -11,7 +11,6 @@ class Worldcup::Group
 			@name = name
 			@teams = []
 		end
-
 			 # scrape_create method  scrapes a web page,
 			 # then it initializes each element with new instance of the class,
 			  # lastly, it will store it in an array of the class.

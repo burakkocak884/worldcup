@@ -9,12 +9,12 @@ class Worldcup::CLI
 		
 		 # call method will execute the next methods in order.
 		 def call
+		 #self
 		 welcome
 		 list_of_commands
 		 run
 		end
-
-		# welcome method isplays a welcome message to user.
+			# welcome method isplays a welcome message to user.
 		def welcome
 
 			puts ""
@@ -74,11 +74,12 @@ class Worldcup::CLI
 			input = gets.strip.downcase
 	
 		if input == "teams"
+	       
 	        puts teams
 	       
 	        run
 	    elsif input == "players"
-	    	puts "'Let's get names of 32 teams first"
+	    	puts "'Let's get name of 32 teams first"
   		    puts teams
   		    puts "Let's pick a number to see details"
 			new_team_number = gets.strip.to_i
@@ -100,8 +101,6 @@ class Worldcup::CLI
  			end
 	
 		end
-
-
 		# list_of_commands will list of input options for the user.
 		def list_of_commands
 		    puts "------------------------------------------------------------"

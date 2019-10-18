@@ -43,9 +43,11 @@
 				end
 			end
 			@@all_teams
+			
 		end
 
 			# tournament_facts will scrape data from a web page, iterate over the data,
+			
 			# then return manupulated data which is a list of facts from previous WorldCups. 
 		def self.tournament_facts
 		 puts "Interesting facts of Fifa WorldCup(s) in the past :"
